@@ -17,5 +17,20 @@
             <li><a href="#">Snacks</a></li>
         </ul>
     </header>
+
+    <center>
+    <div>
+        <label for="username">Username</label>
+        <input type="text" name="username" id="username" required>
+    </div>
+    <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" required>
+    </div>
+    <div>
+        <input type="submit" value="login">
+    </div>
+    </center>
+    
 </body>
 </html>

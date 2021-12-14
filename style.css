@@ -49,3 +49,8 @@ header .navigation li a:hover {
     color: red;
     transition: 0.1s;
 }
+div {
+    background-color: grey;
+    font-size: 1.2em;
+    width: 500px;
+}
