@@ -1,0 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: aqua;
+}
+header {
+    position: fixed;
+    top: 0;
+    left: 0;  
+    width: 100%;
+    padding: 40px 100px;
+    z-index: 10000;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.5s;
+}
+header .logo {
+    color: black;
+    font-size: 2.5em;
+    text-decoration: none;
+}
+header .logo span {
+    color: white;
+}
+header .logo span.tagline {
+    color: crimson;
+    font-size: 1em;
+    font-style: italic;
+}
+header .navigation {
+    position: relative;
+    display: flex;
+}
+header .navigation li {
+    list-style: none;
+    margin-left: 30px;
+}
+header .navigation li a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+header .navigation li a:hover {
+    color: red;
+    transition: 0.1s;
+}
