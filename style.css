@@ -49,8 +49,20 @@ header .navigation li a:hover {
     color: red;
     transition: 0.1s;
 }
-div {
+
+.login-form{
+    height: 400px;
+    text-align: center;
+    align-items: center;
+}
+
+.login-form h2 {
+    color: blue;
+    font-size: 1.5em;
+}
+.login-form div {
+    width: 400px;
     background-color: grey;
-    font-size: 1.2em;
-    width: 500px;
+    text-align: center;
+    align-items: center;
 }
