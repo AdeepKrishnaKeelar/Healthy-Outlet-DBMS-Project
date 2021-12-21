@@ -1,68 +1,89 @@
 * {
-    margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    margin: 0;
 }
-body {
-    background-color: aqua;
-}
-header {
-    position: fixed;
-    top: 0;
-    left: 0;  
+.hero{
+    height: 100%;
     width: 100%;
-    padding: 40px 100px;
-    z-index: 10000;
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
+    background-image: url(./images/market-login-img1.jfif);
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+}
+.form-box {
+    width: 380px;
+    height: 480px;
+    position: relative;
+    margin: 6% auto;
+    background: white;
+    padding: 5px;
+    overflow: hidden;
+}
+.button-box {
+    width: 220px;
+    margin: 35px auto;
+    position: relative;
+    box-shadow: 0 0 20px 9px yellow;
+    border-radius: 30px;
+}
+.toggle-btn {
+    padding: 10px 30px;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+    outline: none;
+    position: relative;    
+}
+#btn {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 110px;
+    height: 100%;
+    background: linear-gradient(to right, red,orange);
+    border-radius: 30px;
     transition: 0.5s;
 }
-header .logo {
-    color: black;
-    font-size: 2.5em;
-    text-decoration: none;
+.input-group {
+    top: 180px;
+    position: absolute;
+    width: 280px;
+    transition: 0.5s;
 }
-header .logo span {
-    color: white;
+.input-field {
+    width: 100%;
+    padding: 10px 0;
+    margin: 5px 0;
+    border-left: 0;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: 1px solid grey;
+    outline: none;
+    background: transparent;
 }
-header .logo span.tagline {
-    color: crimson;
-    font-size: 1em;
-    font-style: italic;
+.submit-btn {
+    width: 85%;
+    padding: 10px 30px;
+    cursor: pointer;
+    display: block;
+    margin: auto;
+    background: linear-gradient(to right,red,orange);
+    border: 0;
+    outline: none;
+    border-radius: 30px;
 }
-header .navigation {
-    position: relative;
-    display: flex;
+.chech-box {
+    margin: 30px 10px 30px 0;
 }
-header .navigation li {
-    list-style: none;
-    margin-left: 30px;
+span {
+    color: grey;
+    font-size: 12px;
+    bottom: 68px;
+    position: absolute;
 }
-header .navigation li a {
-    text-decoration: none;
-    color: black;
-    font-size: 1.2em;
-    font-weight: 300;
+#login {
+    left: 50px;
 }
-header .navigation li a:hover {
-    color: red;
-    transition: 0.1s;
-}
-
-.login-form{
-    height: 400px;
-    text-align: center;
-    align-items: center;
-}
-
-.login-form h2 {
-    color: blue;
-    font-size: 1.5em;
-}
-.login-form div {
-    width: 400px;
-    background-color: grey;
-    text-align: center;
-    align-items: center;
+#register {
+    left: 450px;
 }
