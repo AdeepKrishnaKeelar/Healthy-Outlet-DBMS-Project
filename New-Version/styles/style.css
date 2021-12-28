@@ -79,17 +79,38 @@ body {
     background: orange;
 }
 #right_content {
-    width: 750px;
+    width: 800px;
     height: 600px;
     background: orchid;
     float: right;
 }
 #left_sidebar {
-    width: 250px;
+    width: 200px;
     height: 600px;
     background: black;
     float:left;
 }
+#cats {
+    padding: 10px;
+    text-align: center;
+}
+#cats li {
+    list-style: none;
+    margin: 8px;
+}
+#cats a {
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    margin: 5px;
+    padding: 10px;
+}
+#cats a:hover {
+    color: red;
+    text-decoration: underline;
+    font-weight: bold;
+}
+
 .footer {
     width: 1000px;
     height: 100px;

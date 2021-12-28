@@ -41,11 +41,20 @@
                 <div id="left_sidebar"> 
 
                     <div id="sidebar_title">Categories</div>
-
+                        <ul id="cats">
+                            <li><a href="#">Groceries</a></li>
+                            <li><a href="#">Dairy</a></li>
+                            <li><a href="#">Essentials</a></li>
+                            <li><a href="#">Snacks</a></li>
+                            <li><a href="#">Stationary</a></li>
+                        </ul>
                 </div>
+
                 <div id="right_content"> right content</div>
             </div>
-            <div class="footer"></div>
+            <div class="footer">
+                <h1 style="color=white; padding-top:30px; text-align:center">&copy; 2021 - By Idiot boys</h1>
+            </div>
     </div>
 
 </body>
