@@ -1,3 +1,6 @@
+<?php
+include("includes/db.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,11 +45,27 @@
 
                     <div id="sidebar_title">Categories</div>
                         <ul id="cats">
-                            <li><a href="#">Groceries</a></li>
-                            <li><a href="#">Dairy</a></li>
-                            <li><a href="#">Essentials</a></li>
-                            <li><a href="#">Snacks</a></li>
-                            <li><a href="#">Stationary</a></li>
+                            <?php
+                            $get_cats = "select * from categories";
+
+                            $run_cats = mysqli_query($con, $get_cats);
+
+                            while($row_cats=mysqli_fetch_array($run_cats)) {
+                                $cat_id = $row_cats['cat_id'];
+                                $cat_title = $row_cats['cat_title'];
+
+                                echo "<li><a href='index.php?cat=$cat_id'>$cat_title</a></li>";
+                            }
+
+                            ?>
+                        </ul>
+                <div id="sidebar_title">Brands</div>
+                        <ul id="cats">
+                            <li><a href="#">Athmeeya's Farm</a></li>
+                            <li><a href="#">Mathur Dairy</a></li>
+                            <li><a href="#">Adeep Pens</a></li>
+                            <li><a href="#">Killer Snacks</a></li>
+                            <li><a href="#">Unloyal World</a></li>
                         </ul>
                 </div>
 
