@@ -61,11 +61,18 @@ include("includes/db.php");
                         </ul>
                 <div id="sidebar_title">Brands</div>
                         <ul id="cats">
-                            <li><a href="#">Athmeeya's Farm</a></li>
-                            <li><a href="#">Mathur Dairy</a></li>
-                            <li><a href="#">Adeep Pens</a></li>
-                            <li><a href="#">Killer Snacks</a></li>
-                            <li><a href="#">Unloyal World</a></li>
+                            <?php
+                                $get_bran = "select * from brands";
+
+                                $run_bran = mysqli_query($con, $get_bran);
+    
+                                while($row_bran=mysqli_fetch_array($run_bran)) {
+                                    $brand_id = $row_bran['brand_id'];
+                                    $brand_title = $row_bran['brand_title'];
+    
+                                    echo "<li><a href='index.php?cat=$brand_id'>$brand_title</a></li>";
+                                }
+                            ?>
                         </ul>
                 </div>
 
