@@ -26,6 +26,7 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
+    overflow: auto;
 }
 body {
     background-color: blue;
@@ -37,7 +38,7 @@ body {
 }
 .header_wrapper {
     width: 1000px;
-    height: 100px;
+    height: 150px;
     background:white;
 }
 #navbar {
@@ -50,7 +51,7 @@ body {
     padding: 0;
     line-height: 36px;
     margin-top: 5px;
-    float: left;
+    float: left; 
 }
 #menu li {
     list-style: none;
@@ -75,18 +76,18 @@ body {
 }
 .content_wrapper {
     width: 1000px;
-    height: 600px;
+    height: auto;
     background: orange;
+    overflow: auto;
 }
 #right_content {
     width: 800px;
-    height: 600px;
     background: orchid;
-    float: right;
+    float: right; 
+    overflow: auto;
 }
 #left_sidebar {
     width: 200px;
-    height: 600px;
     background: black;
     float:left;
 }
@@ -123,4 +124,31 @@ body {
     color: black;
     padding: 10px;
     font-size: 22px;
+}
+#headline {
+    background: black;
+    color: white;
+    float: right;
+    height: 35px;
+    width: 780px;
+    padding: 10px;
+}
+#headline_content {
+    float: right;
+}
+#product_box {
+    width: 780px;
+    padding: 10px;
+    margin-left: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    overflow: auto;
+}
+#single_product {
+    float: left;
+    padding: 10px;
+}
+#single_product img {
+    border: 2px solid #333;
 }
