@@ -38,18 +38,19 @@ function cart() {
 }
 
 //getting the number of items from the cart
+//ip reset to 1 again for working purpose.
 function items() {
     if(isset($_GET['add_cart'])) {
         global $db;
         $ip_add = getRealIPAddr();
-        $get_items = "select * from cart where ip_add='$ip_add'";
+        $get_items = "select * from cart where ip_add='1'";
         $run_items = mysqli_query($db,$get_items);
         $count_items = mysqli_num_rows($run_items);
     }
     else {
         global $db;
         $ip_add = getRealIPAddr();
-        $get_items = "select * from cart where ip_add='$ip_add'";
+        $get_items = "select * from cart where ip_add='1'";
         $run_items = mysqli_query($db,$get_items);
         $count_items = mysqli_num_rows($run_items);
     }
@@ -80,7 +81,7 @@ function getPro()  {
             <div id='single_product'>
             <h3>$pro_title</h3>
             <img src='admin_area/product_images/$pro_image' width='180' height='180'/>
-            <p><b>Price: Rs$pro_price/kg </b></p>
+            <p><b>Price: Rs$pro_price/- </b></p>
             <a href='details.php?pro_id=$pro_id' style='float:left'>Details</a>
             <a href='index.php?add_cart=$pro_id'><button style='float:right;'>Add to Cart</button></a>
             </div>
@@ -89,6 +90,27 @@ function getPro()  {
           }
         }
     }
+}
+
+//Getting the total price of the items from the cart
+//change IP accordingly otherwise set to 1 for reference working mode only
+function total_price() {
+    $ip_add = getRealIPAddr();
+    global $db;
+    $total = 0;
+    $sel_price = "select * from cart where ip_add='1'";
+    $run_price = mysqli_query($db,$sel_price);
+    while($record=mysqli_fetch_array($run_price)) {
+        $pro_id = $record['p_id'];
+        $pro_price = "select * from products where product_id='$pro_id'";
+        $run_pro_price = mysqli_query($db,$pro_price);
+        while($p_price=mysqli_fetch_array($run_pro_price)) {
+            $product_price = array($p_price['product_price']);
+            $values = array_sum($product_price);
+            $total+=$values;
+        }
+    }
+    echo $total;
 }
 
 //This function matches those who ID of same types and when called in various categories of the webpage, it filters out the specific details
