@@ -17,6 +17,27 @@ function getRealIPAddr() {
     }
     return $ip;
 }
+
+//Script for the Cart
+function cart() {
+    if(isset($_GET['add_cart'])) {
+        global $db;
+        $ip_add = getRealIPAddr();
+        $p_id = $_GET['add_cart'];
+        $check_pro = "select * from cart where ip_add='$ip_add' AND p_id='$p_id'";
+        $run_check = mysqli_query($db,$check_pro);
+        if(mysqli_num_rows($run_check)>0) {
+            echo "";
+        }
+        else {
+            $q = "insert into cart (p_id,ip_add) values ('$p_id','1')";
+            $run_q=mysqli_query($db,$q);
+            echo "<script>window.open('index.php','_self')</script>";
+        }
+    }
+}
+
+
 //getting products
 function getPro()  {
     global $db;

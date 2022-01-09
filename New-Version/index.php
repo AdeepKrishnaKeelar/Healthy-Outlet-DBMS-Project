@@ -60,6 +60,9 @@ include("functions/functions.php");
                 </div>
 
                 <div id="right_content"> 
+                    <?php
+                        cart();
+                    ?>
                     <div id="headline">
                         <div id="headline_content">
                             <b>Welcome Guest</b>
@@ -68,10 +71,6 @@ include("functions/functions.php");
                         </div>
                     </div>
                     
-                    <?php
-                        $ip=getRealIPAddr();
-                        echo $ip;
-                    ?>
                     
                     <div id="product_box">    
                         <?php
