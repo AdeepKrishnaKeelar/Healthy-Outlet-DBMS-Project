@@ -9,7 +9,7 @@ function getPro()  {
         if(!isset($_GET['brand'])) {
 
 
-    $get_products = "select * from products order by rand() LIMIT 0,6";
+    $get_products = "select * from products order by rand() LIMIT 0,10";
 
     $run_products = mysqli_query($db, $get_products);
     while($row_products=mysqli_fetch_array($run_products)) {
@@ -39,21 +39,16 @@ function getPro()  {
 //This function matches those who ID of same types and when called in various categories of the webpage, it filters out the specific details
 function getCatPro()  {
     global $db;
-
     if(isset($_GET['cat'])) {
-
     $cat_id = $_GET['cat'];
-
     $get_cat_pro = "select * from products where cat_id='$cat_id'";
-
     $run_cat_pro = mysqli_query($db, $get_cat_pro);
-
     $count = mysqli_num_rows($run_cat_pro);
     if($count==0) {
         echo "<h2>No Products Found in this category!</h2>"; 
     }
 
-    while($row_cat_pro=mysqli_fetch_array($run_cat_pro)) {
+    while($row_cat_pro =mysqli_fetch_array($run_cat_pro)) {
         $pro_id = $row_cat_pro['product_id'];
         $pro_title = $row_cat_pro['product_title'];
         $pro_cat = $row_cat_pro['cat_id'];
@@ -79,18 +74,13 @@ function getCatPro()  {
 //This function matches those who ID of same types and when called in various brands of the webpage, it filters out the specific details
 function getBrandPro()  {
     global $db;
-
     if(isset($_GET['brand'])) {
-
     $brand_id = $_GET['brand'];
-
     $get_brand_pro = "select * from products where brand_id='$brand_id'";
-
     $run_brand_pro = mysqli_query($db, $get_brand_pro);
-
     $count = mysqli_num_rows($run_brand_pro);
     if($count==0) {
-        echo "<h2>No Products Found in this Brand!</h2>"; 
+        echo "<h2>No Products Found for this Brand!</h2>"; 
     }
 
     while($row_brand_pro=mysqli_fetch_array($run_brand_pro)) {
@@ -126,7 +116,7 @@ function getBrands() {
             $brand_id = $row_bran['brand_id'];
             $brand_title = $row_bran['brand_title'];
     
-            echo "<li><a href='index.php?cat=$brand_id'>$brand_title</a></li>";
+            echo "<li><a href='index.php?brand=$brand_id'>$brand_title</a></li>";
         }
     }
 
