@@ -1,7 +1,23 @@
 <?php
+//Establishing connection
+$db = mysqli_connect("localhost","root","","mygrocery");
 
-    $db = mysqli_connect("localhost","root","","mygrocery");
-
+//function for getting the IP Address of the User 
+function getRealIPAddr() {
+    //checking for shared net
+    if(!empty($_SERVER['HTTP_CLIENT_IP'])) {
+        $ip=$_SERVER['HTTP_CLIENT_IP'];
+    }
+    //checking if ip is pass from proxy
+    elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
+        $ip=$_SERVER['HTTP_X_FORWARDED_FOR'];
+    }
+    else {
+        $ip=$_SERVER['REMOTE_ADDR'];
+    }
+    return $ip;
+}
+//getting products
 function getPro()  {
     global $db;
 
@@ -105,7 +121,7 @@ function getBrandPro()  {
         }
     }
 }
-
+//getting brands display info
 function getBrands() {
         global $db;
         $get_bran = "select * from brands";
@@ -120,7 +136,8 @@ function getBrands() {
         }
     }
 
-    function getCats() {
+//getting categories display 
+function getCats() {
         global $db;
         $get_cats = "select * from categories";
 

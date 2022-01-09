@@ -68,6 +68,11 @@ include("functions/functions.php");
                         </div>
                     </div>
                     
+                    <?php
+                        $ip=getRealIPAddr();
+                        echo $ip;
+                    ?>
+                    
                     <div id="product_box">    
                         <?php
                             getPro();
