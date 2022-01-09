@@ -41,12 +41,15 @@ function cart() {
 function items() {
     if(isset($_GET['add_cart'])) {
         global $db;
-        $get_items = "select * from cart where ip_add='1'";
+        $ip_add = getRealIPAddr();
+        $get_items = "select * from cart where ip_add='$ip_add'";
         $run_items = mysqli_query($db,$get_items);
         $count_items = mysqli_num_rows($run_items);
     }
     else {
-        $get_items = "select * from cart where ip_add='1'";
+        global $db;
+        $ip_add = getRealIPAddr();
+        $get_items = "select * from cart where ip_add='$ip_add'";
         $run_items = mysqli_query($db,$get_items);
         $count_items = mysqli_num_rows($run_items);
     }
