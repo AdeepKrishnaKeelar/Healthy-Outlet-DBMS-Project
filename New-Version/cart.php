@@ -108,7 +108,7 @@ include("functions/functions.php");
                                             $qty = $_POST['qty'];
                                             $insert_qty="update cart set qty='$qty' where ip_add='1'";
                                             $run_qty = mysqli_query($con,$insert_qty);
-                                            $total = $total*(int)$qty;
+                                            $total = $total*(integer)$qty;
                                         }
                                     ?>
                                     <td><?php echo $only_price; ?></td>
