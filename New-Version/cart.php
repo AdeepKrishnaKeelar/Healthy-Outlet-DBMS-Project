@@ -103,11 +103,12 @@ include("functions/functions.php");
                                     <td><?php echo $product_title?><br><img src="admin_area/product_images/<?php echo $product_image;?>" alt="image" height="80" width="80"></td>
                                     <td><input type="text" name="qty" value="" size="3"/></td>
                                     <?php
+                                        global $con;
                                         if(isset($_POST['update'])) {
                                             $qty = $_POST['qty'];
-                                            $insert_qty="update cart set qty='$qty' where ip_add=1";
+                                            $insert_qty="update cart set qty='$qty' where ip_add='1'";
                                             $run_qty = mysqli_query($con,$insert_qty);
-                                            $total = $total*$qty;
+                                            $total = $total*(int)$qty;
                                         }
                                     ?>
                                     <td><?php echo $only_price; ?></td>
@@ -126,9 +127,10 @@ include("functions/functions.php");
                                 </tr>
                             </table>
                         </form>     
+                        
                         <?php
                             function updatecart() {
-                                global $con;
+                            global $con;
                             if(isset($_POST['update'])) {
                                 foreach($_POST['remove'] as $remove_id) {
                                     $delete_products = "delete from cart where p_id='$remove_id'";
@@ -145,6 +147,7 @@ include("functions/functions.php");
                     }
 
                     echo @$up_cart = updatecart();
+
                         ?>
                     </div>
 
