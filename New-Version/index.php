@@ -67,7 +67,7 @@ include("functions/functions.php");
                         <div id="headline_content">
                             <b>Welcome Guest</b>
                             <b style="color:yellow;">Shopping Cart:</b>
-                            <span>- Total Items: <?php items(); ?> - Total Price: <?php total_price(); ?> </span>
+                            <span>- Total Items: <?php items(); ?> - Total Price: <?php total_price(); ?> - <a href="cart.php" style="color:yellow;"> Go to Cart </a></span>
                         </div>
                     </div>
                     
