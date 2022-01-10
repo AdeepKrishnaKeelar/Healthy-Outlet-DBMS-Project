@@ -101,7 +101,15 @@ include("functions/functions.php");
                                 <tr>
                                     <td><input type="checkbox" name="remove[]" value="<?php echo $pro_id; ?>"></td>
                                     <td><?php echo $product_title?><br><img src="admin_area/product_images/<?php echo $product_image;?>" alt="image" height="80" width="80"></td>
-                                    <td><input type="text" name="qty" value="1" size="3"/></td>
+                                    <td><input type="text" name="qty" value="" size="3"/></td>
+                                    <?php
+                                        if(isset($_POST['update'])) {
+                                            $qty = $_POST['qty'];
+                                            $insert_qty="update cart set qty='$qty' where ip_add=1";
+                                            $run_qty = mysqli_query($con,$insert_qty);
+                                            $total = $total*$qty;
+                                        }
+                                    ?>
                                     <td><?php echo $only_price; ?></td>
                                 </tr>
                                 <?php }} ?>
@@ -119,7 +127,24 @@ include("functions/functions.php");
                             </table>
                         </form>     
                         <?php
-                            if(isset($_POST['update']))
+                            function updatecart() {
+                                global $con;
+                            if(isset($_POST['update'])) {
+                                foreach($_POST['remove'] as $remove_id) {
+                                    $delete_products = "delete from cart where p_id='$remove_id'";
+                                    $run_delete = mysqli_query($con,$delete_products);
+                                    if($run_delete) {
+                                        echo "<script>window.open('cart.php','_self')</script>";
+                                    }
+                                }
+    
+                        }
+                        if(isset($_POST['continue'])) {
+                            echo "<script>window.open('index.php','_self')</script>";
+                        }
+                    }
+
+                    echo @$up_cart = updatecart();
                         ?>
                     </div>
 
