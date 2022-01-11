@@ -52,7 +52,7 @@ if(isset($_POST['c_login'])) {
     $run_customer = mysqli_query($con, $sel_customer);
     $check_customer = mysqli_num_rows($run_customer);
     $get_ip = getRealIPAddr();
-    $sel_cart = "select * from cart where ip_add='$get_ip'";
+    $sel_cart = "select * from cart where ip_add='1'";
     $run_cart = mysqli_query($con, $sel_cart);
     $check_cart = mysqli_num_rows($run_cart);
     if($check_customer==0) {
