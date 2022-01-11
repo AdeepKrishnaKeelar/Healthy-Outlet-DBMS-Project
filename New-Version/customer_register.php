@@ -66,8 +66,14 @@ include("functions/functions.php");
                     ?>
                     <div id="headline">
                         <div id="headline_content">
-                            <b>Welcome Guest</b>
-                            <b style="color:yellow;">Shopping Cart:</b>
+                        <?php
+                                if(!isset($_SESSION['customer_email'])) {
+                                    echo "<b>Welcome Guest!</b> <b style='color:yellow;'>Shopping Cart:</b>";
+                                }
+                                else {
+                                    echo "<b>Welcome:" ."<span style='color:skyblue;'>".$_SESSION['customer_email'] ."</span" . "</b>" . "<b style='color:yellow;'> Your Shopping Cart:</b>";
+                                }
+                            ?>                            
                             <span>- Total Items: <?php items(); ?> - Total Price: <?php total_price(); ?> - <a href="cart.php" style="color:yellow;"> Go to Cart </a>
                             <?php
                             if(!isset($_SESSION['customer_email'])) {
@@ -167,7 +173,7 @@ include("functions/functions.php");
         $c_address = $_POST['c_address'];
         $c_image = $_FILES['c_image']['name'];
         $c_image_tmp = $FILES['c_image']['tmp_name'];
-        $c_ip = getRealIpAddr();
+        $c_ip = getRealIPAddr();
 
         $insert_customer = "insert into customers (customer_name, customer_email,customer_pass, customer_country, customer_city, customer_contact, customer_address,customer_image, customer_ip) values ('$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip')";
         

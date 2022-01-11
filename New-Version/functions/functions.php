@@ -16,7 +16,7 @@ function getRealIPAddr() {
         $ip=$_SERVER['REMOTE_ADDR'];
     }
     return $ip;
-}
+} 
 
 //Script for the Cart
 function cart() {

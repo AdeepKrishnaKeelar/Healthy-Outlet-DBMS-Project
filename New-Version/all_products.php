@@ -62,8 +62,14 @@ include("functions/functions.php");
                 <div id="right_content"> 
                     <div id="headline">
                         <div id="headline_content">
-                            <b>Welcome Guest</b>
-                            <b style="color:yellow;">Shopping Cart:</b>
+                        <?php
+                                if(!isset($_SESSION['customer_email'])) {
+                                    echo "<b>Welcome Guest!</b> <b style='color:yellow;'>Shopping Cart:</b>";
+                                }
+                                else {
+                                    echo "<b>Welcome:" ."<span style='color:skyblue;'>".$_SESSION['customer_email'] ."</span" . "</b>" . "<b style='color:yellow;'> Your Shopping Cart:</b>";
+                                }
+                            ?>
                             <span>- Items: - Price: 
                             <?php
                             if(!isset($_SESSION['customer_email'])) {
