@@ -39,14 +39,15 @@ else {
     $qty=$qty;
     $sub_total = $total * $qty;
 }
-$insert_order = "insert into customer_orders {order_id, customer_id, due_amount, invoice_no, total_products, order_date, order_status} values{'$customer_id','$sub_total','$invoice_no','$count_pro','NOW()','$status'}";
-$run_order = mysqli_query($con, $insert_order);
+    $insert_order = "insert into customer_orders {order_id, customer_id, due_amount, invoice_no, total_products, order_date, order_status} values{'$customer_id','$sub_total','$invoice_no','$count_pro','NOW()','$status'}";
+    $run_order = mysqli_query($con, $insert_order);
     echo "<script>alert('Order successfully submitted,Thanks!')</script>";
     echo "<script>window.open('customer/my_account.php','_self')</script>";
 
-    $empty_cart = "delete from cart where ip_add = '$ip_add'";
-    $run_empty = mysqli_query($con, $empty_cart);
     $insert_to_pending_orders = "insert into pending_orders {customer_id,invoice_no,product_id,qty,order_status} values{'$customer_id','$invoice_no','$pro_id','$qty','$status'}";
     $run_pending_order = mysqli_query($con,$insert_to_pending_orders);
+
+    $empty_cart = "delete from cart where ip_add = '$ip_add'";
+    $run_empty = mysqli_query($con, $empty_cart);
 
 ?>
