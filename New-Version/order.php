@@ -8,9 +8,10 @@ if(isset($_GET['c_id'])) {
     $customer_id = $_GET['c_id'];
 }
 //Getting the price of the products and total number of products
-$ip_add = getRealIPAddr();
+//$ip_add = getRealIPAddr();
+$ip_add=1;
     $total = 0;
-    $sel_price = "select * from cart where ip_add='1'";
+    $sel_price = "select * from cart where ip_add='$ip_add'";
     $run_price = mysqli_query($db,$sel_price);
     $status = 'Pending';
     $invoice_no = mt_rand();
@@ -39,12 +40,12 @@ else {
     $qty=$qty;
     $sub_total = $total * $qty;
 }
-    $insert_order = "insert into customer_orders {order_id, customer_id, due_amount, invoice_no, total_products, order_date, order_status} values{'$customer_id','$sub_total','$invoice_no','$count_pro','NOW()','$status'}";
+    $insert_order = "insert into customer_orders (customer_id, due_amount, invoice_no, total_products, order_date, order_status) values('$customer_id','$sub_total','$invoice_no','$count_pro','NOW()','$status')";
     $run_order = mysqli_query($con, $insert_order);
     echo "<script>alert('Order successfully submitted,Thanks!')</script>";
     echo "<script>window.open('customer/my_account.php','_self')</script>";
 
-    $insert_to_pending_orders = "insert into pending_orders {customer_id,invoice_no,product_id,qty,order_status} values{'$customer_id','$invoice_no','$pro_id','$qty','$status'}";
+    $insert_to_pending_orders = "insert into pending_orders (customer_id,invoice_no,product_id,qty,order_status) values('$customer_id','$invoice_no','$pro_id','$qty','$status')";
     $run_pending_order = mysqli_query($con,$insert_to_pending_orders);
 
     $empty_cart = "delete from cart where ip_add = '$ip_add'";
