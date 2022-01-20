@@ -35,7 +35,7 @@ body {
     width: 1000px;
     height: auto;
     margin: auto;
-    background: #000;
+    background:  orchid;
 }
 .header_wrapper {
     width: 1000px;
@@ -84,17 +84,17 @@ body {
 #right_content {
     width: 800px;
     background: orchid;
-    float: right; 
+    float: left; 
     overflow: auto;
 }
 #left_sidebar {
     width: 200px;
-    background: black;
-    float:left;
+    background:  orchid;
+    float:right;
 }
 #cats {
     padding: 10px;
-    text-align: center;
+    text-align: left;
 }
 #cats li {
     list-style: none;
