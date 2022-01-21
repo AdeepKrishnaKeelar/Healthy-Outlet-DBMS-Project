@@ -18,6 +18,8 @@ function getRealIPAddr() {
     return $ip;
 }
 
+//getting the defaults for customers
+
 //Script for the Cart
 function cart() {
     if(isset($_GET['add_cart'])) {

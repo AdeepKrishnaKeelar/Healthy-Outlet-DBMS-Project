@@ -88,9 +88,10 @@ body {
     overflow: auto;
 }
 #left_sidebar {
-    width: 200px;
+    width: 190px;
     background:  orchid;
     float:right;
+    border-left: 2px solid white;
 }
 #cats {
     padding: 10px;

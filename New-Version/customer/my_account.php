@@ -99,8 +99,8 @@ include("functions/functions.php");
                     </div>
                     
                     
-                    <div id="product_box">    
-                                     
+                    <div>    
+                        <h2 style="background: #000; color:#FC9; text-align:center; border-top:2px solid white; padding:20px;">Manage Your Account Here</h2>             
                     </div>
 
                 </div>
