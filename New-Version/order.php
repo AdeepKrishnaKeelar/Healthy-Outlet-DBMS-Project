@@ -11,7 +11,7 @@ if(isset($_GET['c_id'])) {
 //$ip_add = getRealIPAddr();
 $ip_add=1;
     $total = 0;
-    $sel_price = "select * from cart where ip_add='$ip_add'";
+    $sel_price = "select * from cart where ip_add='1'";
     $run_price = mysqli_query($db,$sel_price);
     $status = 'Pending';
     $invoice_no = mt_rand();

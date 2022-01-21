@@ -19,6 +19,46 @@ function getRealIPAddr() {
 }
 
 //getting the defaults for customers
+function getDefault() {
+    global $db;
+    $c = $_SESSION['customer_email'];
+    $get_c = "select * from customers where customer_email='$c'";
+    $run_c = mysqli_query($db,$get_c);
+    $row_c = mysqli_fetch_array($run_c);
+
+        $customer_id = $row_c['customer_id'];
+        if(!isset($_GET['my_orders'])) {
+            if(!isset($_GET['edit_account'])) { 
+                if(!isset($_GET['change_pass'])) { 
+                    if(!isset($_GET['delete_account'])) { 
+
+                    //$get_orders = "select * from customer_orders where customer_id='$customer_id' AND order_status='pending'";
+                    $get_orders = "select * from customer_orders where order_status='pending'";
+                    $run_orders = mysqli_query($db,$get_orders);
+                    $count_orders = mysqli_num_rows($run_orders);
+
+                    if($count_orders>0) {
+                        echo "
+                        <div style='padding:10px;'>
+                        <h1 style='color:red; text-decoration=underline;'>Important!</h1>
+                        <h2> You have ($count_orders) Pending Order(s) </h2>
+                        <h3> Please see your order details by clicking <a href='my_account.php?my_orders'>LINK</a><br>You can <a href='pay_offline.php'>Pay Offline</a></h3>
+                        </div> ";
+                    }
+                    else {
+                        echo "
+                        <div style='padding:10px;'>
+                        <h1 style='color:red; text-decoration=underline;'>Important!</h1>
+                        <h2> You have no Pending Order(s) </h2>
+                        <h3> You can see your orders history by clicking this <a href='my_account.php?my_orders'>LINK</a></h3>
+                        </div> ";
+                    }
+
+    }
+    }
+    }
+    }
+}
 
 //Script for the Cart
 function cart() {
@@ -26,7 +66,7 @@ function cart() {
         global $db;
         $ip_add = getRealIPAddr();
         $p_id = $_GET['add_cart'];
-        $check_pro = "select * from cart where ip_add='$ip_add' AND p_id='$p_id'";
+        $check_pro = "select * from cart where ip_add='1' AND p_id='$p_id'";
         $run_check = mysqli_query($db,$check_pro);
         if(mysqli_num_rows($run_check)>0) {
             echo "";
