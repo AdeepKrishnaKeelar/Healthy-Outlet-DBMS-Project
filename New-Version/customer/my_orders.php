@@ -51,7 +51,7 @@ $customer_id = $row_c['customer_id'];
                 <td>$products</td>
                 <td>$date</td>
                 <td>$status</td>
-                <td><a href='confirm.php'>Confirm if Paid</a></td>
+                <td><a href='confirm.php?order_id=$order_id'>Confirm if Paid</a></td>
              </tr>
             ";
         }
