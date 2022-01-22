@@ -13,7 +13,7 @@
 <h2>Payment Options</h2>
 <?php 
 $ip = getRealIPAddr();
-$get_customer = "select * from customers where customer_ip='$ip'";//$ip 
+$get_customer = "select * from customers where customer_ip='1'";//$ip 
 $run_customer = mysqli_query($con, $get_customer);
 $customer = mysqli_fetch_array($run_customer);
 $customer_id = $customer['customer_id'];

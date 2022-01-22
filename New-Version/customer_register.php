@@ -173,7 +173,8 @@ include("functions/functions.php");
         $c_address = $_POST['c_address'];
         $c_image = $_FILES['c_image']['name'];
         $c_image_tmp = $FILES['c_image']['tmp_name'];
-        $c_ip = getRealIPAddr();
+        $c_ip = 1;
+        //$c_ip = getRealIPAddr();
 
         $insert_customer = "insert into customers (customer_name, customer_email,customer_pass, customer_country, customer_city, customer_contact, customer_address,customer_image, customer_ip) values ('$c_name','$c_email','$c_pass','$c_country','$c_city','$c_contact','$c_address','$c_image','$c_ip')";
         

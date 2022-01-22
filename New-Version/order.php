@@ -28,7 +28,7 @@ $ip_add=1;
     }
 
     //Getting quantity from the cart
-$get_cart = "select * from cart where ip_add='$ip_add'";
+$get_cart = "select * from cart where ip_add='1'";
 $run_cart = mysqli_query($con, $get_cart);
 $get_qty = mysqli_fetch_array($run_cart);
 $qty = $get_qty['qty'];

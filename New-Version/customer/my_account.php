@@ -104,6 +104,11 @@ include("functions/functions.php");
                         <?php
                             getDefault();
                         ?>
+                        <?php
+                            if(isset($_GET['my_orders'])) {
+                                include("my_orders.php");
+                            }
+                        ?>
                     </div>
 
                 </div>
