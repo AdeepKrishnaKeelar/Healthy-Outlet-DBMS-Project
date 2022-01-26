@@ -17,7 +17,7 @@ include("includes/db.php")
 
 <form method="post" action="insert_product.php" enctype="multipart/form-data">
 
-    <table width="700" align="center" border="1" bgcolor="blue">
+    <table width="794" align="center" border="1" bgcolor="lightskyblue">
 
             <tr align="center">
                 <td colspan="2"><h2>Insert New Product:</h2></td>
@@ -149,6 +149,7 @@ include("includes/db.php")
 
                 if($run_product) {
                     echo"<script>alert('Product Inserted Successfully!')</script>";
+                    echo "<script>window.alert('índex.php?insert_product','_self')</script>";
                 }
                 }
 
