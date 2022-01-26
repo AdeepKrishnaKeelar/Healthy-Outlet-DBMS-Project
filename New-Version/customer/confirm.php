@@ -15,7 +15,7 @@ if(isset($_GET['order_id'])) {
     <title>Document</title>
 </head>
 <body bgcolor="black">
-    <form action="confirm.php" method="POST">
+    <form action="confirm.php?update_id=<?php echo $order_id; ?>" method="POST">
         <table width="500" align="center" border="2" bgcolor="#CCCCC">
             <tr align="center">
                 <td colspan="5"><h2>Please Confirm your Payment!</h2></td>
@@ -53,9 +53,31 @@ if(isset($_GET['order_id'])) {
                 <td><input type="text" name="date"/></td>
             </tr>
             <tr align="center">
-                <td colspan="5"><input type="submit" name="Confirm" value="Confirm Payment"></td>
+                <td colspan="5"><input type="submit" name="confirm" value="Confirm Payment"></td>
            </tr>
         </table>
     </form>
 </body>
 </html>
+
+<?php
+    if(isset($_POST['confirm'])) {
+        $update_id = $_GET['update_id'];
+        $invoice = $_POST['invoice_no'];
+        $amount = $_POST['amount'];
+        $payment_method = $_POST['payment_method'];
+        $ref_no = $_POST['tr'];
+        $code = $_POST['code'];
+        $date = $_POST['date'];
+        $complete = 'Complete';
+
+        $insert_payment = "insert into payments(invoice_no,amount,payment_mode,ref_no,code,payment_date) values('$invoice','$amount','$payment_method','$ref_no','$code','$date')";
+        $run_payment = mysqli_query($con,$insert_payment);
+
+        $update_order = "update customer_orders set order_status=$complete where order_id='$update_id'";
+        $run_order = mysqli_query($con, $update_order);
+        if($run_payment) {
+            echo "<h2 style='text-align:center; color:white;'>Payment received, your order will be delievered to you shortly!</h2>";
+        }
+    }
+?>

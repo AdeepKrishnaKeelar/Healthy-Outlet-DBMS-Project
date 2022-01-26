@@ -7,9 +7,12 @@ include("functions/functions.php");
 if(isset($_GET['c_id'])) {
     $customer_id = $_GET['c_id'];
 }
+if (isset($_POST['c_id'])) {
+    $customer_id = $_GET['c_id'];
+}
 //Getting the price of the products and total number of products
 //$ip_add = getRealIPAddr();
-$ip_add=1;
+    $ip_add=1;
     $total = 0;
     $sel_price = "select * from cart where ip_add='1'";
     $run_price = mysqli_query($db,$sel_price);
