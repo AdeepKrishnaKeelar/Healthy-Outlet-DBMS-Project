@@ -187,12 +187,12 @@ include("functions/functions.php");
 
         if($check_cart>0) {
             $_SESSION['customer_email']=$c_email;
-            echo "<script>alert('Account created successfully!')</script>";
+            echo "<script>window.alert('Account created successfully!')</script>";
             echo "<script>window.open('checkout.php','_self')</script>";
         }
         else {
             $_SESSION['customer_email']=$c_email;
-            echo "<script>alert('Account created successfully!')</script>";
+            echo "<script>window.alert('Account created successfully!')</script>";
             echo "<script>window.open('index.php','_self')</script>";
         }
     }
