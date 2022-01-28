@@ -28,7 +28,7 @@
             <th>Image</th>
             <th>Price</th>
             <th>Total Sold</th>
-            <th>Sold</th>
+            <th>Status</th>
             <th>Edit</th>
             <th>Delete</th>
         </tr>
@@ -49,8 +49,23 @@
             <td><?php echo $p_title; ?></td>
             <td><img src="product_images/<?php echo $p_img; ?>" width="60" height="60"/></td>
             <td><?php echo $p_price; ?></td>
-            <td></td>
-            <td></td>
+            <td>
+                <?php
+                    $get_sold="select * from pending_orders where product_id='$p_id'";
+                    $run_sold=mysqli_query($con,$get_sold);
+                    $count=mysqli_num_rows($run_sold);
+                    echo $count;
+                ?>
+            </td>
+            <td>
+            <?php
+                    $get_status="select * from products where product_id='$p_id'";
+                    $run_status=mysqli_query($con,$get_status);
+                    $row_status=mysqli_fetch_array($run_status);
+                    $p_status=$row_status['status'];
+                    echo $p_status;
+                ?>
+            </td>
             <td><a href="#">Edit</a></td>
             <td><a href="#">Delete</a></td>
         </tr>
