@@ -39,6 +39,12 @@
                 if(isset($_GET['insert_cat'])) {
                     include("insert_cat.php");
                 }
+                if(isset($_GET['view_cats'])) {
+                    include("view_cats.php");
+                }
+                if(isset($_GET['edit_cat'])) {
+                    include("edit_cat.php");
+                }
             ?>
         </div>
     </div>
