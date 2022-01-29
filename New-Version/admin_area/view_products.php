@@ -18,6 +18,9 @@
     </style>
 </head>
 <body>
+    <?php
+        if(isset($_GET['view_products'])) {
+    ?>
     <table align="center" width="794" bgcolor="yellow">
         <tr align="center">
             <td colspan="8"><h2>View All Products</h2></td>
@@ -66,10 +69,11 @@
                     echo $p_status;
                 ?>
             </td>
-            <td><a href="#">Edit</a></td>
-            <td><a href="#">Delete</a></td>
+            <td><a href="index.php?edit_pro=<?php echo $p_id; ?>">Edit</a></td>
+            <td><a href="index.php?delete_pro=<?php echo $p_id; ?>">Delete</a></td>
         </tr>
         <?php } ?>
     </table>
+    <?php } ?>
 </body>
 </html>
