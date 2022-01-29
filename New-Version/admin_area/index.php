@@ -45,6 +45,15 @@
                 if(isset($_GET['edit_cat'])) {
                     include("edit_cat.php");
                 }
+                if(isset($_GET['insert_brand'])) {
+                    include("insert_brand.php");
+                }
+                if(isset($_GET['view_brands'])) {
+                    include("view_brands.php");
+                }
+                if(isset($_GET['edit_brand'])) {
+                    include("edit_brand.php");
+                }
             ?>
         </div>
     </div>
