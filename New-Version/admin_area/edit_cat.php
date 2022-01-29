@@ -31,7 +31,7 @@
 </body>
 </html>
 <?php
-    if(isset($_POST['update_cart'])) {
+    if(isset($_POST['update_cat'])) {
         $cat_title123 = $_POST['cat_title1'];
         $update_cat = "update categories set cat_title='$cat_title123' where cat_id='$cat_edit_id'";
         $run_update = mysqli_query($con, $update_cat);
