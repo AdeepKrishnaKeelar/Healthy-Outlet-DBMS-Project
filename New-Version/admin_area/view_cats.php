@@ -37,7 +37,7 @@
             <td><?php echo $cat_id;?></td>
             <td><?php echo $cat_title;?></td>
             <td><a href="index.php?edit_cat=<?php echo $cat_id; ?>">Edit</a></td>
-            <td><a href="index.php?delete_cat=<?php echo $cat_id; ?>">Delete</a></td>
+            <td><a href="delete_cat.php?delete_cat=<?php echo $cat_id; ?>">Delete</a></td>
         </tr>
 
         <?php } ?>
