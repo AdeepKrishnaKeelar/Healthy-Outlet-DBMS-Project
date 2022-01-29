@@ -6,6 +6,7 @@ if(isset($_GET['edit_pro'])) {
     $get_edit = "select * from products where product_id ='$edit_id'";
     $run_edit = mysqli_query($con,$get_edit);
     $row_edit = mysqli_fetch_array($run_edit);
+    $update_id = $row_edit['product_id'];
     
     $p_title = $row_edit['product_title'];
     $cat_id = $row_edit['cat_id'];
@@ -43,8 +44,7 @@ if(isset($_GET['edit_pro'])) {
 </head>
 <body bgcolor="grey">
 
-<form method="post" action="" enctype="multipart/form-data">
-
+<form action="" method="post" enctype="multipart/form-data">
     <table width="794" align="center" border="1" bgcolor="lightskyblue">
 
             <tr align="center">
@@ -133,15 +133,9 @@ if(isset($_GET['edit_pro'])) {
             </tr>
 
     </table>
-
 </form>
-
-
-</body>
-</html>
 <?php
-
-            if(isset($_POST['insert_product'])) {
+            if(isset($_POST['update_product'])) {
 
                 //text data variables
                 $product_title = $_POST['product_title'];
@@ -171,16 +165,18 @@ if(isset($_GET['edit_pro'])) {
                 move_uploaded_file($temp_name1,"product_images/$product_img1");
                 move_uploaded_file($temp_name2,"product_images/$product_img2");
                 move_uploaded_file($temp_name3,"product_images/$product_img3");
-                $insert_product = "insert into products (cat_id,brand_id,date,product_title,product_img1,product_img2,product_img3,product_price,product_desc,status) values('$product_cat','$product_brand',NOW(),'$product_title','$product_img1','$product_img2','$product_img3','$product_price','$product_desc','$status')";
+                $update_product = "update products set cat_id='$product_cat', brand_id='$product_brand', date='NOW()', product_title='$product_title', product_img1='$product_img1', product_img2='$product_img2', product_img3='$product_img3', product_price='$product_price', product_desc='$product_desc', product_keywords='$product_keywords' where product_id='$update_id'"; 
 
-                $run_product = mysqli_query($con, $insert_product);
+                $run_update = mysqli_query($con, $update_product);
 
-                if($run_product) {
-                    echo"<script>alert('Product Inserted Successfully!')</script>";
-                    echo "<script>window.alert('índex.php?insert_product','_self')</script>";
+                if($run_update) {
+                    echo "<script type='text/javascript'>alert('Product Updated Successfully')</script>";
+                    echo "<script type='text/javascript'>window.open('index.php?view_products','_self')</script>";
                 }
-                }
+            }
 
             }
 
 ?>
+</body>
+</html>

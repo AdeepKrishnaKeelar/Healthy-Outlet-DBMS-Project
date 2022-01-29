@@ -99,8 +99,8 @@
         $run_c = mysqli_query($con,$update_c);
 
         if($run_c) {
-            echo "<script>alert('Your account has been updated!')</script>";
-            echo "<script>window.open('my_account.php','_self')</script>";
+            echo "<script type='text/javascript'>alert('Your account has been updated!')</script>";
+            echo "<script type='text/javascript'>window.open('my_account.php','_self')</script>";
         }
     }
 ?>
