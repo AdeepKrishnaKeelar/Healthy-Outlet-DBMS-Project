@@ -1,5 +1,9 @@
 <?php
-include("includes/db.php")
+include("includes/db.php");
+if(!isset($_SESSION['admin_email'])) {
+    echo "<script>window.open('login.php','_self')</script>";
+}
+else {
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -156,3 +160,4 @@ include("includes/db.php")
             }
 
 ?>
+<?php } ?>

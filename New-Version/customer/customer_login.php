@@ -20,11 +20,52 @@ include("includes/db.php");
         <td colspan="4"><input type="submit" name="c_login" value="Login"/></td>
         </tr>
         <tr align="center">   
-        <td colspan="4"><a href="forget_pass.php">Forgot Password?</a></td>
+        <td colspan="4"><a href="checkout.php?forgot_pass">Forgot Password?</a></td>
         </tr>    
     </table>
 
     </form>
+    <?php
+        if(isset($_GET['forgot_pass'])) {
+            echo "
+                <div align='center'>
+                    <b>Enter your email below, we'll send your password to your email</b><br>
+                    <form action='' method='post'>
+                    <input type='text' name='c_email' placeholder='Enter your email' required/> <br>
+                    <input type='submit' name='forgot_pass' value='Send me Password'/>
+                    </form>
+                </div>
+            ";
+            if(isset($_POST['forgot_pass'])) {
+                $c_email = $_POST['c_email'];
+                $sel_c = "select * from customers where customer_email = '$c_email'";
+                $run_c=mysqli_query($con,$sel_c);
+                $check_c = mysqli_num_rows($run_c);
+                $row_c = mysqli_fetch_array($run_c);
+                $c_name = $row_c['customer_name'];
+                $c_pass = $row_c['customer_pass'];
+                if($check_c==0) {
+                    echo "<script>alert('This email does not exist in our database,sorry!')</script>";
+                    exit();
+                }
+                else {
+                    $from = 'admin@mysite.com';
+                    $subject = 'Your password';
+                    $message = "
+                    <html>
+                        <h3> Dear $c_name </h3>
+                        <p> You requested your password! </p>
+                        <b> Your password is:</b><span style='color:red;'>$c_pass</span>
+                        <h3> Cheers! </h3>
+                    </html>
+                    ";
+                    mail($c_email,$subject,$message,$from);
+                    echo "<script>alert('Password has been forwarded to your mail, check it out!')</script>";
+                    echo "<script>window.open('checkout.php','_self')</script>";
+                }
+            }
+        }
+    ?>
     <h2 style="float:right; padding:10px; text-decoration:none;"><a href="customer_register.php">New Customer? Register Here</a></h2>
 </div>
 
