@@ -149,7 +149,7 @@ include("includes/db.php")
 
                 if($run_product) {
                     echo"<script>alert('Product Inserted Successfully!')</script>";
-                    echo "<script>window.alert('índex.php?insert_product','_self')</script>";
+                    echo "<script>window.open('index.php?view_brands','_self')</script>";
                 }
                 }
 

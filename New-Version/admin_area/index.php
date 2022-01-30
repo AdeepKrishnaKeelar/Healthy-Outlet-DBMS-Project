@@ -57,6 +57,12 @@
                 if(isset($_GET['view_customers'])) {
                     include("view_customers.php");
                 }
+                if(isset($_GET['view_orders'])) {
+                    include("view_orders.php");
+                }
+                if(isset($_GET['view_payments'])) {
+                    include("view_payments.php");
+                }
             ?>
         </div>
     </div>

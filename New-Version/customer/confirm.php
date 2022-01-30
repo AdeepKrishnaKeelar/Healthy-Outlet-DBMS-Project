@@ -4,6 +4,10 @@ include("includes/db.php");
 
 if(isset($_GET['order_id'])) {
     $order_id = $_GET['order_id'];
+ /*   $get_c = "select * from pending_orders where order_id='$order_id'";
+    $run_c = mysqli_query($con,$get_c);
+    $row_c = mysqli_fetch_array($run_c);
+    $c_id = $row_c['customer_id']; */ 
 }
 ?>
 <!DOCTYPE html>
@@ -74,8 +78,12 @@ if(isset($_GET['order_id'])) {
         $insert_payment = "insert into payments(invoice_no,amount,payment_mode,ref_no,code,payment_date) values('$invoice','$amount','$payment_method','$ref_no','$code','$date')";
         $run_payment = mysqli_query($con,$insert_payment);
 
-        $update_order = "update customer_orders set order_status=$complete where order_id='$update_id'";
+        $update_order = "update customer_orders set order_status='$complete' where order_id='$update_id'";
         $run_order = mysqli_query($con, $update_order);
+        
+        $update_pending_orders = "update pending_orders set order_status='$complete' where order_id='$update_id'";
+        $run_pending_orders = mysqli_query($con, $update_pending_orders);
+
         if($run_payment) {
             echo "<h2 style='text-align:center; color:white;'>Payment received, your order will be delievered to you shortly!</h2>";
         }
