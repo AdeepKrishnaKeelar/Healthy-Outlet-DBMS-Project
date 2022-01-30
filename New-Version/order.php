@@ -2,6 +2,13 @@
 
 include("includes/db.php");
 include("functions/functions.php");
+if(isset($_GET['c_id'])) {
+    $customer_id = $_GET['c_id'];
+    $c_email = "select * from customers where customer_id='$customer_id'";
+    $run_email=mysqli_query($con,$c_email);    
+    $row_email = mysqli_fetch_array($run_email);
+    $customer_email = $row_email['customer_email'];
+}
 
 //Getting customer_id
 if(isset($_GET['c_id'])) {
@@ -10,6 +17,7 @@ if(isset($_GET['c_id'])) {
 //Getting the price of the products and total number of products
 //$ip_add = getRealIPAddr();
     $ip_add=1;
+    $i=0;
     $total = 0;
     $sel_price = "select * from cart where ip_add='1'";
     $run_price = mysqli_query($db,$sel_price);
@@ -21,9 +29,11 @@ if(isset($_GET['c_id'])) {
         $pro_price = "select * from products where product_id='$pro_id'";
         $run_pro_price = mysqli_query($db,$pro_price);
         while($p_price=mysqli_fetch_array($run_pro_price)) {
+            $product_name = $p_price['product_title'];
             $product_price = array($p_price['product_price']);
             $values = array_sum($product_price);
             $total+=$values;
+            $i++;
         }
     }
 
@@ -50,5 +60,35 @@ else {
 
     $empty_cart = "delete from cart where ip_add = '$ip_add'";
     $run_empty = mysqli_query($con, $empty_cart);
+
+    $from='mysite@academy.com';
+    $subject='Order Details';
+
+    $message= "
+        <html>
+            <P> Hello, here are your order details!</p>
+            <table width='600' align='center' bgcolor='lightskyblue' border='2'>
+                <tr><td><h2>Your Orders</h2></td></tr>
+                <tr>    
+                    <td><b>Sl No</b></td>
+                    <td><b>Product Name</b></td>
+                    <td><b>Quantity</b></td>
+                    <td><b>Total Price</b></td>
+                    <td><b>Invoice</b></td>
+                </tr>
+
+                <tr>
+                    <td>$i</td>
+                    <td>$product_name</td>
+                    <td>$qty</td>
+                    <td>$sub_total</td>
+                    <td>$invoice_no</td>
+                </tr>
+            </table>
+            <h3> Cheers </h3>
+        </html>
+    ";
+
+    mail($customer_email,$subject,$message,$from);
 
 ?>
