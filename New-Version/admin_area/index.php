@@ -29,6 +29,7 @@
                         <a href="index.php?view_customers">Customers</a>
                         <a href="index.php?view_orders">View Orders</a>
                         <a href="index.php?view_payments">View Payments</a>
+                        <a href="index.php?view_feedback">View Feedback</a>
                         <a href="logout.php">Admin Logout</a>
                     </div>
             </div>
@@ -70,6 +71,9 @@
                 }
                 if(isset($_GET['view_payments'])) {
                     include("view_payments.php");
+                }
+                if(isset($_GET['view_feedback'])) {
+                    include("view_feedback.php");
                 }
             ?>
         </div>

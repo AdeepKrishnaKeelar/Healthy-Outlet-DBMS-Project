@@ -18,6 +18,7 @@ else {
     </script>
 </head>
 <body bgcolor="grey">
+    
 
 <form method="post" action="insert_product.php" enctype="multipart/form-data">
 
