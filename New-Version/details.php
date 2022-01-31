@@ -23,9 +23,9 @@ include("functions/functions.php");
         <!-- Navigation Bar starts-->
             <div id="navbar">
                 <ul id="menu">
-                    <li><a href="index.php">Home</a></li>
+                <li><a href="index.php">Home</a></li>
                     <li><a href="all_products.php">All Products</a></li>
-                    <li><a href="my_account.php">My Account</a></li>
+                    <li><a href="customer/my_account.php">My Account</a></li>
                     <li><a href="user_register.php">Sign Up</a></li>
                     <li><a href="cart.php">Shopping Cart</a></li>
                     <li><a href="contact_us.php">Contact Us</a></li>

@@ -1,9 +1,8 @@
 <?php
 include("includes/db.php");
-if(!isset($_SESSION['admin_email'])) {
+/*if(!isset($_SESSION['admin_email'])) {
     echo "<script>window.open('login.php','_self')</script>";
-}
-else {
+} */
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -153,12 +152,11 @@ else {
                 $run_product = mysqli_query($con, $insert_product);
 
                 if($run_product) {
-                    echo"<script>alert('Product Inserted Successfully!')</script>";
-                    echo "<script>window.open('index.php?view_brands','_self')</script>";
+                    echo "<script>alert('Product Inserted Successfully!')</script>";
+                    echo "<script>window.open('index.php?insert_product','_self')</script>";
                 }
                 }
 
             }
 
 ?>
-<?php } ?>
